@@ -6,12 +6,13 @@ the class responsiable for handeling the controlers and the keypad
 */
 #ifndef input_header
 #define input_header
-
 #ifdef __WINDOWS__
+
 #include <SDL.h>
 #include <SDL_image.h>
 
 #else
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
