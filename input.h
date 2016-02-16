@@ -37,6 +37,7 @@ public:
 	//the order is {up(0),dn(1),Lt(2),rt(3),start(4),back(5),LtJoy(6),rtJoy(7),LB(8),rb(9),a(10),b(11),x(12),y(13)
 	bool getButton(int n);
 	void rumble(int percent, int time);
+	void mouse(int* data);
 private:
 	SDL_Event e_;
 	SDL_Joystick * con1_;

@@ -1,0 +1,9 @@
+Ideas for deviding the tasks.
+
+-print==> A class that contralls the screen and images
+
+-input==> A class to tell our code how to take in data from the user
+
+-battleship==> A class to handel the game
+
+-main==> binds the 3 together.

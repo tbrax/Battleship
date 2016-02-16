@@ -96,3 +96,9 @@ bool input::getButton(int n){
 void input::rumble(int percent, int time){
 	SDL_HapticRumblePlay(rumble_, percent/100.0, time);
 }
+
+void input::mouse(int* data){
+	while (SDL_PollEvent(&e_) != 0){
+	}
+	
+}
