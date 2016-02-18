@@ -7,7 +7,7 @@ the class responsiable for handeling the controlers and the keypad
 #ifndef input_header
 #define input_header
 
-#ifdef _WIN32
+#ifdef __WINDOWS__
 #include <SDL.h>
 #include <SDL_image.h>
 

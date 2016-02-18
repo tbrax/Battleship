@@ -10,7 +10,7 @@ the class responsiable for handeling the screen
 #include <string>
 #include <vector>
 
-#ifdef _WIN32
+#ifdef __WINDOWS__
 #include <SDL.h>
 #include <SDL_image.h>
 
