@@ -2,8 +2,19 @@
 and may not be redistributed without written permission.*/
 
 //Using SDL, SDL_image, standard IO, and strings
+
+
+
+#ifdef __WINDOWS__
 #include <SDL.h>
 #include <SDL_image.h>
+
+#else
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+
+#endif
+
 #include <stdio.h>
 #include <string>
 
