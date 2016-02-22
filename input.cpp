@@ -8,7 +8,7 @@ the class responsiable for handeling the controlers and the keypad
 
 
 input::input(){
-	
+
 }
 
 input::input(int control){
@@ -99,6 +99,16 @@ void input::rumble(int percent, int time){
 
 void input::mouse(int* data){
 	while (SDL_PollEvent(&e_) != 0){
+
+                //Currently this activates on mousedown, mouseup, and mouse motion, but it can be easily changed
+                if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
+                {
+
+                    //Get mouse position
+                    int x, y;
+                    SDL_GetMouseState( &x, &y );
+                }
+
 	}
-	
+
 }
