@@ -81,7 +81,6 @@ void print::printAsBack(int pos){
 }
 void print::printOut(){
 	SDL_RenderPresent(render_);
-	SDL_RenderClear(render_);
 }
 
 void print::printToScale(int pos, double posx, double posy, double scale){

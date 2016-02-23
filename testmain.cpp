@@ -36,8 +36,12 @@ int main(int argc,char **argv){
 	input in;
 	in.letterKeys(a);
 	a[0]=false;
+	int mouse[4];
 	double ang=3.14/2;
-	while(!a[0]){
+	in.mouse(mouse);
+	while(!mouse[2]){
+		in.mouse(mouse);
+		cout << mouse[0] << " " << mouse[1] << "\n";
 		ang-=.7;
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("back.png"));

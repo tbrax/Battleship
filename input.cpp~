@@ -110,6 +110,6 @@ void input::mouse(int* data){
 	//Get mouse position
 	SDL_GetMouseState( &data[0], &data[1] );
 	data[2]=down;
-	data[3]=up;
+	data[3]=up
 
 }
