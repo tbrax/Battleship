@@ -44,8 +44,11 @@ int main(int argc,char **argv){
 		cout << mouse[0] << " " << mouse[1] << "\n";
 		ang-=.7;
 		in.letterKeys(a);
-		printer.printAsBack(printer.Obj("back.png"));
-		printer.printRotC(printer.Obj("one.png"), ang, .5, .3, 1.4, .5, .5);
+		printer.printAsBack(printer.Obj("gameImages/back.png"));
+		printer.printRotC(printer.Obj("gameImages/one.png"), ang, .5, .3, 1.4, .5, .5);
+
+		printer.printAtSize(printer.Obj("gameImages/Square1.png"), 0.1, 0.2, 0.1, 0.1);
+
 		printer.printOut();
 	}
 }
