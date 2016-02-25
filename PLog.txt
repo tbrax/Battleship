@@ -4,3 +4,5 @@ got acess to the repo lets see if this will work.
 added a function that needs to be made to take the users mouse events.
 2-24
 Got all of the squares to display and resolved cursur location.
+2-24
+made one of the squares print a green dot
