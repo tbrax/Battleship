@@ -10,6 +10,9 @@ Brainstorming session.
 2/14/16
 Setup SDL
 
+2/16/16
+Created Testing program
+
 2/17/16
 Learned about catch testing interface.
 
@@ -21,3 +24,13 @@ Requirements document created.
 
 2/21/16
 Design document created.
+
+2/23/16
+Added to Testing program
+
+2/24/16
+Added to Testing program
+
+2/25/16
+Added mouse selection to main
+
