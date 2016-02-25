@@ -41,20 +41,33 @@ int main(int argc,char **argv){
 	in.mouse(mouse);
 	int greensq[2];
 	greensq[0]=0;
-	greensq[1]=4;
+	greensq[1]=0;
+	double mouseScaleX;
+	double mouseScaleY;
+
 	while(!mouse[2]){
+
 		in.mouse(mouse);
-		cout << mouse[0] << " " << mouse[1] << "\n";
+        mouseScaleX = (double)mouse[0]/(double)printer.yPixel();
+        mouseScaleY = (double)mouse[1]/(double)printer.yPixel();
+
+		cout << ((int)(mouseScaleX*10)) << " " << ((int)(mouseScaleY*10)) << "\n";
+		//cout << mouseScaleX << " " << mouseScaleY << "\n";
+		//cout << mouseScaleX << "\n";
+		//cout << double(mouse[0]/printer.xPixel()) << " " << double(mouse[1]/printer.yPixel()) << "\n";
+
 		ang-=.7;
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("gameImages/back.png"));
+		greensq[0] = ((int)(mouseScaleX*10));
+		greensq[1] = 9 - ((int)(mouseScaleY*10));
 		//printer.printRotC(printer.Obj("gameImages/one.png"), ang, .5, .3, 1.4, .5, .5);
-		greensq[0]++;
+		/*greensq[0]++;
 		greensq[0]%=10;
 		if(greensq[0]==0){
 			greensq[1]++;
 			greensq[1]%=10;
-		}
+		}*/
 		for(int i=0;i<10;i++){
 			for(int j=0;j<10;j++){
 				int obj;
@@ -62,6 +75,7 @@ int main(int argc,char **argv){
 					obj=printer.Obj("gameImages/Squarewtgreen.png");
 				}else{
 					obj=printer.Obj("gameImages/Square1.png");
+
 				}
 				printer.printAtSize(obj, printer.yMeter()*.1*(i), printer.yMeter()*.1*(1+j), printer.yMeter()*.1, printer.yMeter()*.1);
 			}

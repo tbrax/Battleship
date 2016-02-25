@@ -25,7 +25,7 @@ the class responsiable for handeling the screen
 using std::ifstream;
 using std::cout;
 using std::string;
-using std::to_string;
+//using std::to_string;
 using std::vector;
 
 class print{
@@ -37,6 +37,8 @@ public:
 	double xMeter();
 	double yMeter();
 	double scale();
+	int xPixel();
+	int yPixel();
 
 	//prints a image as the background
 	void printAsBack(int pos);
@@ -46,7 +48,7 @@ public:
 	//this one prints it to the exact dementions
 	void printAtSize(int pos, double posx, double posy, double width, double height);
 
-	//rotates the object about portionw and portionh then prints that point on the image to x,y 
+	//rotates the object about portionw and portionh then prints that point on the image to x,y
 	void printRotC(int pos, double angle, double x, double y, double w, double portionW, double portionH);
 	//same only with a flip
 	void printRotCFlip(int pos, double angle, double x, double y, double w, double portionW, double portionH);
