@@ -45,9 +45,12 @@ int main(int argc,char **argv){
 		ang-=.7;
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("gameImages/back.png"));
-		printer.printRotC(printer.Obj("gameImages/one.png"), ang, .5, .3, 1.4, .5, .5);
-
-		printer.printAtSize(printer.Obj("gameImages/Square1.png"), 0.1, 0.2, 0.1, 0.1);
+		//printer.printRotC(printer.Obj("gameImages/one.png"), ang, .5, .3, 1.4, .5, .5);
+		for(int i=0;i<10;i++){
+			for(int j=0;j<10;j++){
+				printer.printAtSize(printer.Obj("gameImages/Square1.png"), printer.yMeter()*.1*(i), printer.yMeter()*.1*(1+j), printer.yMeter()*.1, printer.yMeter()*.1);
+			}
+		}
 
 		printer.printOut();
 	}
