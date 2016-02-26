@@ -56,6 +56,8 @@ public:
 	void printHP(double posx,double posy, double width,double proportion);
 	//puts what is in the renderer to the screen
 	void printOut();
+	//converts two numbers from pixles to meeters
+	void convertPxM(int* px,double* meeter);
 private:
 	ifstream in;
 	SDL_Texture* loadT(const string &file);

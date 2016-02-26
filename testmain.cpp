@@ -30,57 +30,39 @@ using std::endl;
 int main(int argc,char **argv){
 	//initialize SDL and the classes
 	SDL_Init(SDL_INIT_EVERYTHING);
-	srand(time(0));
 	print printer;
 	bool a[26];
 	input in;
 	in.letterKeys(a);
-	a[0]=false;
 	int mouse[4];
 	double ang=3.14/2;
 	in.mouse(mouse);
-	int greensq[2];
-	greensq[0]=0;
-	greensq[1]=0;
-	double mouseScaleX;
-	double mouseScaleY;
-
+	double mousepos[2];
 	while(!mouse[2]){
 
 		in.mouse(mouse);
-        mouseScaleX = (double)mouse[0]/(double)printer.yPixel();
-        mouseScaleY = (double)mouse[1]/(double)printer.yPixel();
+        	printer.convertPxM(mouse,mousepos);
 
-		cout << ((int)(mouseScaleX*10)) << " " << ((int)(mouseScaleY*10)) << "\n";
-		//cout << mouseScaleX << " " << mouseScaleY << "\n";
-		//cout << mouseScaleX << "\n";
-		//cout << double(mouse[0]/printer.xPixel()) << " " << double(mouse[1]/printer.yPixel()) << "\n";
-
-		ang-=.7;
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("gameImages/back.png"));
-		greensq[0] = ((int)(mouseScaleX*10));
-		greensq[1] = 9 - ((int)(mouseScaleY*10));
-		//printer.printRotC(printer.Obj("gameImages/one.png"), ang, .5, .3, 1.4, .5, .5);
-		/*greensq[0]++;
-		greensq[0]%=10;
-		if(greensq[0]==0){
-			greensq[1]++;
-			greensq[1]%=10;
-		}*/
+		double carpos[2];
 		for(int i=0;i<10;i++){
 			for(int j=0;j<10;j++){
 				int obj;
-				if(i==greensq[0] && j==greensq[1]){
+				if(printer.yMeter()*.1*(i)<mousepos[0] && (printer.yMeter()*.1*(i)+ printer.yMeter()*.1)>mousepos[0] && printer.yMeter()*.1*(j)<mousepos[1] && (printer.yMeter()*.1*(j)+ printer.yMeter()*.1)>mousepos[1]){
 					obj=printer.Obj("gameImages/Squarewtgreen.png");
+					carpos[0]=printer.yMeter()*.1*(i);
+					carpos[1]=printer.yMeter()*.1*(1+j);
 				}else{
 					obj=printer.Obj("gameImages/Square1.png");
 
 				}
+				obj=printer.Obj("gameImages/Square1.png");
 				printer.printAtSize(obj, printer.yMeter()*.1*(i), printer.yMeter()*.1*(1+j), printer.yMeter()*.1, printer.yMeter()*.1);
 			}
 		}
-
+		printer.printAtSize(printer.Obj("gameImages/carier.png"), carpos[0], carpos[1], printer.yMeter()*.1*5, printer.yMeter()*.1);
+		
 		printer.printOut();
 	}
 }

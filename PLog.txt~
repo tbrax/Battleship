@@ -9,4 +9,4 @@ Made one of the squares print a green dot.
 2-26
 So far weve gotten the SDL librarys to work and display stuff to the screen.  But we really havent been doing the "correct" method since it is, more or less, imposible to build a test for user I/O.  I'm trying to remidy that tonight as I will make a battleship class.
 
-We now hava a carrier on the screen, I had to do a lot of work with gimp to get the bakgound on it to go away but now it all works!
+

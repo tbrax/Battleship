@@ -152,3 +152,8 @@ void print::printHP(double posx,double posy, double width, double proportion){
 	RenderText(Obj("gameImages/hp.png"), posx - width / 2, posy + height / 2, width, height);
 	RenderText(Obj("gameImages/hp_full.png"), posx - width / 2, posy + height / 2, width*proportion, height);
 }
+
+void print::convertPxM(int* px,double* meeter){
+	meeter[0]=px[0]*xdst_/pixX_;
+	meeter[1]=(pixY_-px[1])*ydst_/pixY_;
+}
