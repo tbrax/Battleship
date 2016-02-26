@@ -1,8 +1,12 @@
 2-10
-got acess to the repo lets see if this will work.
+Got acess to the repo lets see if this will work.
 2-15
-added a function that needs to be made to take the users mouse events.
+Added a function that needs to be made to take the users mouse events.
 2-24
 Got all of the squares to display and resolved cursur location.
 2-24
-made one of the squares print a green dot
+Made one of the squares print a green dot.
+2-26
+So far weve gotten the SDL librarys to work and display stuff to the screen.  But we really havent been doing the "correct" method since it is, more or less, imposible to build a test for user I/O.  I'm trying to remidy that tonight as I will make a battleship class.
+
+
