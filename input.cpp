@@ -113,3 +113,4 @@ void input::mouse(int* data){
 	data[3]=up;
 
 }
+

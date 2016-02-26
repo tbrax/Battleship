@@ -134,6 +134,13 @@ double print::yMeter(){
 	return ydst_;
 }
 
+int print::xPixel(){
+	return pixX_;
+}
+int print::yPixel(){
+	return pixY_;
+}
+
 double print::scale(){
 	return scale_;
 }
