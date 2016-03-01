@@ -18,6 +18,8 @@ the main function for the game
 
 #include "print.h"
 #include "input.h"
+#include "grid.h"
+#include "ship.h"
 #include <iostream>
 #include <random>
 #include <ctime>
@@ -38,31 +40,21 @@ int main(int argc,char **argv){
 	double ang=3.14/2;
 	in.mouse(mouse);
 	double mousepos[2];
+	grid theGrid(&printer);
+	ship carr(printer.Obj("gameImages/carier.png"),printer.Obj("gameImages/carierL.png"),5);
+	ship battle(printer.Obj("gameImages/battleship.png"),printer.Obj("gameImages/battleshipL.png"),4);
+	theGrid.addShip(&carr);
+	theGrid.addShip(&battle);
+	battle.setPos(8,9);
+	battle.flip();
+	carr.setPos(0,0);
 	while(!mouse[2]){
-
 		in.mouse(mouse);
         	printer.convertPxM(mouse,mousepos);
-
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("gameImages/back.png"));
-		double carpos[2];
-		for(int i=0;i<10;i++){
-			for(int j=0;j<10;j++){
-				int obj;
-				if(printer.yMeter()*.1*(i)<mousepos[0] && (printer.yMeter()*.1*(i)+ printer.yMeter()*.1)>mousepos[0] && printer.yMeter()*.1*(j)<mousepos[1] && (printer.yMeter()*.1*(j)+ printer.yMeter()*.1)>mousepos[1]){
-					obj=printer.Obj("gameImages/Squarewtgreen.png");
-					carpos[0]=printer.yMeter()*.1*(i);
-					carpos[1]=printer.yMeter()*.1*(1+j);
-				}else{
-					obj=printer.Obj("gameImages/Square1.png");
-
-				}
-				obj=printer.Obj("gameImages/Square1.png");
-				printer.printAtSize(obj, printer.yMeter()*.1*(i), printer.yMeter()*.1*(1+j), printer.yMeter()*.1, printer.yMeter()*.1);
-			}
-		}
-		printer.printAtSize(printer.Obj("gameImages/carier.png"), carpos[0], carpos[1], printer.yMeter()*.1*5, printer.yMeter()*.1);
-		
+		theGrid.render();
 		printer.printOut();
+		
 	}
 }
