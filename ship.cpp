@@ -35,3 +35,10 @@ int ship::posY(){
 int ship::length(){
 	return _length;
 }
+
+bool ship::isOk(){
+	bool out=true;
+	out=out && _posX>-1 && _posY<10 && _posX<10 && _posY>-1;
+	out=out && (_left || _posY>_length-2);
+	out=out && (!_left || _posX<11-_length);
+}

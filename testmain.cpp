@@ -39,20 +39,23 @@ int main(int argc,char **argv){
 	int mouse[4];
 	double ang=3.14/2;
 	in.mouse(mouse);
-	double mousepos[2];
+	int mousepos[2];
 	grid theGrid(&printer);
 	ship carr(printer.Obj("gameImages/carier.png"),printer.Obj("gameImages/carierL.png"),5);
 	ship battle(printer.Obj("gameImages/battleship.png"),printer.Obj("gameImages/battleshipL.png"),4);
 	theGrid.addShip(&carr);
 	theGrid.addShip(&battle);
-	battle.setPos(8,9);
-	battle.flip();
-	carr.setPos(0,0);
-	while(!mouse[2]){
+	while(!a[0]){
 		in.mouse(mouse);
-        	printer.convertPxM(mouse,mousepos);
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("gameImages/back.png"));
+		if(theGrid.mousepos(mouse,mousepos)){
+			carr.setPos(mousepos[0],mousepos[1]);
+		}
+		if(mouse[2]){
+			carr.flip();
+		}
+
 		theGrid.render();
 		printer.printOut();
 		

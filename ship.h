@@ -11,6 +11,7 @@ public:
 	int posX();
 	int posY();
 	int length();
+	bool isOk();
 private:
 	bool _left;
 	int _objl;

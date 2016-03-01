@@ -3,7 +3,10 @@
 grid::grid(print* printer){
 	_printer=printer;
 	_gridsize=printer->yMeter();
-	_gridOffset=.2;
+	if(_gridsize>(printer->xMeter())/2.1){
+		_gridsize=(printer->xMeter())/2.1;
+	}
+	_gridOffset=0;
 }
 
 void grid::addShip(ship* shipIn){
@@ -28,6 +31,19 @@ void grid::render(){
 			d=_ships[i]->length();
 			l=1;
 		}
-		_printer->printAtSize(obj, _ships[i]->posX()*_gridsize*.1+_gridOffset, _gridsize*.1*(1+_ships[i]->posY()), _printer->yMeter()*.1*l, _printer->yMeter()*.1*d);
+		if(_ships[i]->isOk()){
+			_printer->printAtSize(obj, _ships[i]->posX()*_gridsize*.1+_gridOffset, _gridsize*.1*(1+_ships[i]->posY()), _gridsize*.1*l, _gridsize*.1*d);
+		}
 	}
+}
+
+bool grid::mousepos(int* px,int* gridpos){
+	double tempMeeter[2];
+	_printer->convertPxM(px,tempMeeter);
+	if(tempMeeter[0]>_gridsize+_gridOffset || tempMeeter[0]<_gridOffset || tempMeeter[1]>_gridsize || tempMeeter[1]<0){
+		return false;
+	}
+	gridpos[0]=(int) ((tempMeeter[0]-_gridOffset)/_gridsize*10);
+	gridpos[1]=(int) ((tempMeeter[1])/_gridsize*10);
+	return true;
 }
