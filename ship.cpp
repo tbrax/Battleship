@@ -36,6 +36,14 @@ int ship::length(){
 	return _length;
 }
 
+void ship::setOwner(int i){
+	_playerOwner = i;
+}
+
+int ship::getOwner(){
+	return _playerOwner;
+}
+
 bool ship::isOk(){
 	bool out=true;
 	out=out && _posX>-1 && _posY<10 && _posX<10 && _posY>-1;

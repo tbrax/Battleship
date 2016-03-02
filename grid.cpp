@@ -13,7 +13,7 @@ void grid::addShip(ship* shipIn){
 	_ships.push_back(shipIn);
 }
 
-void grid::render(){
+void grid::render(int player){
 	for(int i=0;i<10;i++){
 		for(int j=0;j<10;j++){
 			_printer->printAtSize(_printer->Obj("gameImages/Square1.png"), _gridsize*.1*(i)+_gridOffset, _gridsize*.1*(1+j), _gridsize*.1, _gridsize*.1);
@@ -31,7 +31,7 @@ void grid::render(){
 			d=_ships[i]->length();
 			l=1;
 		}
-		if(_ships[i]->isOk()){
+		if(_ships[i]->isOk() && _ships[i]->getOwner()==player){
 			_printer->printAtSize(obj, _ships[i]->posX()*_gridsize*.1+_gridOffset, _gridsize*.1*(1+_ships[i]->posY()), _gridsize*.1*l, _gridsize*.1*d);
 		}
 	}

@@ -106,6 +106,13 @@ void input::mouse(int* data){
 		down = down || e_.type == SDL_MOUSEBUTTONDOWN;
 		up = up || e_.type == SDL_MOUSEBUTTONUP;
 
+		if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
+                data[4] = 1;
+            }
+        else if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_RIGHT)) {
+                data[4] = 2;
+            }
+
 	}
 	//Get mouse position
 	SDL_GetMouseState( &data[0], &data[1] );

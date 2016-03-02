@@ -9,7 +9,7 @@ class grid{
 public:
 	grid(print * printer);
 	void addShip(ship* shipIn);
-	void render();
+	void render(int player);
 	//this will return true if the cursur is on the grid and will give the location in the second argument
 	bool mousepos(int* px,int* gridpos);
 private:

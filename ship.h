@@ -11,6 +11,8 @@ public:
 	int posX();
 	int posY();
 	int length();
+	int getOwner();
+	void setOwner(int i);
 	bool isOk();
 private:
 	bool _left;
@@ -19,6 +21,7 @@ private:
 	int _length;
 	int _posX;
 	int _posY;
+	int _playerOwner;
 };
 
 
