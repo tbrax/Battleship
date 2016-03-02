@@ -1,12 +1,12 @@
 #include "grid.h"
 
-grid::grid(print* printer){
+grid::grid(print* printer,double gridOffset){
 	_printer=printer;
 	_gridsize=printer->yMeter();
-	if(_gridsize>(printer->xMeter())/2.1){
-		_gridsize=(printer->xMeter())/2.1;
+	if(_gridsize>(printer->xMeter())/2.5){
+		_gridsize=(printer->xMeter())/2.5;
 	}
-	_gridOffset=0;
+	_gridOffset=gridOffset;
 }
 
 void grid::addShip(ship* shipIn){
@@ -46,4 +46,8 @@ bool grid::mousepos(int* px,int* gridpos){
 	gridpos[0]=(int) ((tempMeeter[0]-_gridOffset)/_gridsize*10);
 	gridpos[1]=(int) ((tempMeeter[1])/_gridsize*10);
 	return true;
+}
+
+double grid::gridsize(){
+	return _gridsize;
 }

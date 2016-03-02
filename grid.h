@@ -7,11 +7,12 @@ using std::vector;
 
 class grid{
 public:
-	grid(print * printer);
+	grid(print * printer,double gridOffset);
 	void addShip(ship* shipIn);
 	void render();
 	//this will return true if the cursur is on the grid and will give the location in the second argument
 	bool mousepos(int* px,int* gridpos);
+	double gridsize();
 private:
 	double _gridsize;
 	double _gridOffset;
