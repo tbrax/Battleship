@@ -42,6 +42,8 @@ int main(int argc,char **argv){
 	int mousepos[2];
 	grid theGrid(&printer);
 
+    grid theGrid2(&printer);
+    theGrid2.setOffset(0.5);
 	//Player 0 ships
 	ship p0carr(printer.Obj("gameImages/carier.png"),printer.Obj("gameImages/carierL.png"),5);
 	ship p0battle(printer.Obj("gameImages/battleship.png"),printer.Obj("gameImages/battleshipL.png"),4);
@@ -85,41 +87,70 @@ int main(int argc,char **argv){
 		in.mouse(mouse);
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("gameImages/back.png"));
-		if(theGrid.mousepos(mouse,mousepos) && gameState == 0){
 
-			totalShipList[currentPlayer][shipSelect]->setPos(mousepos[0],mousepos[1]);
-		}
+		//gameState 0, meaning players are placing their ships
+        if (gameState==0)
+        {
+
+
+            if(theGrid.mousepos(mouse,mousepos)){
+
+                totalShipList[currentPlayer][shipSelect]->setPos(mousepos[0],mousepos[1]);
+            }
 
 		//The ship will only rotate on a right click
-		if(mouse[2] && mouse[4]==2 && gameState ==0){
+            if(mouse[2] && mouse[4]==2 && gameState ==0){
 
-			totalShipList[currentPlayer][shipSelect]->flip();
-		}
+                totalShipList[currentPlayer][shipSelect]->flip();
+            }
 
-		else if(mouse[2] && mouse[4]==1){
+            else if(mouse[2] && mouse[4]==1){
 
-                if (shipSelect< totalShipList[currentPlayer].size()-1){
+                    if (shipSelect< totalShipList[currentPlayer].size()-1){
 
-                    ++shipSelect;
-                }
+                        ++shipSelect;
+                    }
                 //Once all the ships have been placed, switch players
-                else{
-                    shipSelect = 0;
-                    if(currentPlayer== 0)
-                    {
-                        currentPlayer = 1;
+                    else{
+                        shipSelect = 0;
+                        if(currentPlayer== 0)
+                        {
+                            currentPlayer = 1;
+                        }
+                        else
+                        {
+                            currentPlayer = 0;
+                            //will switch to the actual gameplay
+                            gameState = 1;
+
+                        }
+
+
                     }
-                    else
-                    {
-                        currentPlayer = 0;
-                    }
+            }
+
+            theGrid.render(currentPlayer);
+            printer.printOut();
 
 
-                }
-		}
+        }
 
-		theGrid.render(currentPlayer);
-		printer.printOut();
+        //main battleship gameplay
+        else if (gameState == 1)
+        {
+            //grid 2 will be used for targeting
+            if(theGrid2.mousepos(mouse,mousepos)){
+
+            }
+
+            //grid 1 simply shows your ships
+            theGrid.render(currentPlayer);
+
+            theGrid2.render(currentPlayer);
+            printer.printOut();
+
+
+        }
 
 	}
 }

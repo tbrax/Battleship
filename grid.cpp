@@ -13,6 +13,8 @@ void grid::addShip(ship* shipIn){
 	_ships.push_back(shipIn);
 }
 
+
+
 void grid::render(int player){
 	for(int i=0;i<10;i++){
 		for(int j=0;j<10;j++){
@@ -46,4 +48,10 @@ bool grid::mousepos(int* px,int* gridpos){
 	gridpos[0]=(int) ((tempMeeter[0]-_gridOffset)/_gridsize*10);
 	gridpos[1]=(int) ((tempMeeter[1])/_gridsize*10);
 	return true;
+}
+
+
+
+void grid::setOffset(double offset){
+    _gridOffset = offset;
 }
