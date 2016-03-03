@@ -121,21 +121,34 @@ int main(int argc,char **argv){
 			printer.printOut();
 		}
 	}
-	
-	/*
-	while(!a[0]){
+	bool done=false;
+	while(!done){
+		while(!a[0]){
+			in.letterKeys(a);
+			printer.printAsBack(printer.Obj("gameImages/pass.png"));
+			printer.printOut();
+		}
+
+		while(!done){
+			in.mouse(mouse);
+			in.letterKeys(a);
+			printer.printAsBack(printer.Obj("gameImages/back.png"));
+			
+		}
+
+
+
+
+
+
+		while(!a[0]){
+			in.letterKeys(a);
+			printer.printAsBack(printer.Obj("gameImages/pass.png"));
+			printer.printOut();
+		}
 		in.mouse(mouse);
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("gameImages/back.png"));
-		if(theGrid.mousepos(mouse,mousepos)){
-			carr.setPos(mousepos[0],mousepos[1]);
-		}
-		if(mouse[2]){
-			carr.flip();
-		}
-
-		theGrid.render();
-		printer.printOut();
 		
-	}*/
+	}
 }

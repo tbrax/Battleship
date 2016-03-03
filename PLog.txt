@@ -16,3 +16,5 @@ Added the ship class and grid class wich know how to print the grid to the skree
 Made the ship flip
 3-1
 we now have imput from both users
+3-2
+made the main game sequence loop
