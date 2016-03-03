@@ -12,6 +12,7 @@ public:
 	int posY();
 	int length();
 	bool isOk();
+	bool isHere(int posX,int posY,ship* notThis);
 private:
 	bool _left;
 	int _objl;

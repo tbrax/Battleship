@@ -133,7 +133,10 @@ int main(int argc,char **argv){
 			in.mouse(mouse);
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/back.png"));
-			
+			firstGrid.render();
+			firstGridHit.render();
+			if(firstGrid.mousepos(mouse,mousepos)){
+				
 		}
 
 

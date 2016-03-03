@@ -42,3 +42,15 @@ bool ship::isOk(){
 	out=out && (_left || _posY>_length-2);
 	out=out && (!_left || _posX<11-_length);
 }
+
+bool ship::isHere(int posX,int posY,ship* notThis){
+	if(this==notThis){
+		return false;
+	}
+	for(int i=0;i<_length;i++){
+		if(posX==_posX+(int)_length*i && posX==_posX+(int)!_length*i){
+			return true;
+		}
+	}
+	return false;
+}

@@ -7,6 +7,11 @@ grid::grid(print* printer,double gridOffset){
 		_gridsize=(printer->xMeter())/2.5;
 	}
 	_gridOffset=gridOffset;
+	for(int i=0;i<10;i++){
+		for(int j=0;j<10;j++){
+			_selected[i][j]=0;
+		}
+	}
 }
 
 void grid::addShip(ship* shipIn){
@@ -35,6 +40,12 @@ void grid::render(){
 			_printer->printAtSize(obj, _ships[i]->posX()*_gridsize*.1+_gridOffset, _gridsize*.1*(1+_ships[i]->posY()), _gridsize*.1*l, _gridsize*.1*d);
 		}
 	}
+	for(int i=0;i<10;i++){
+		for(int j=0;j<10;j++){
+			if(_selected==1){
+				_printer->printAtSize("gameImages/Square1.png", i*_gridsize*.1+_gridOffset, _gridsize*.1*(1+j), _gridsize*.1, _gridsize*.1);
+		}
+	}
 }
 
 bool grid::mousepos(int* px,int* gridpos){
@@ -50,4 +61,13 @@ bool grid::mousepos(int* px,int* gridpos){
 
 double grid::gridsize(){
 	return _gridsize;
+}
+
+bool grid::shipAt(int posX,int posY,ship* notThis){
+	for(int i=0;i<_ships.size();i++){
+		if(_ships[i]->isHere(posX,posY,notThis)){
+			return true;
+		}
+	}
+	return false;
 }
