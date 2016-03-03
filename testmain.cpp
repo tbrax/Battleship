@@ -56,11 +56,7 @@ int main(int argc,char **argv){
 	for(int i=0;i<5;i++){
 		secondS.push_back(firstS[i]);
 	}
-	
-	for(int i=0;i<5;i++){
-		firstGrid.addShip(&firstS[i]);
-		secondGrid.addShip(&secondS[i]);
-	}
+
 
 	bool a[30];
 	in.letterKeys(a);
@@ -70,14 +66,16 @@ int main(int argc,char **argv){
 	int wait=0;
 	
 	for(int i=0;i<5;i++){
+		int prevX;
+		int prevY;
+		firstGrid.addShip(&firstS[i]);
 		in.mouse(mouse);
-		while(!mouse[2]){
+		while(!mouse[2] || !firstGrid.allOk() || !firstGrid.mousepos(mouse,mousepos)){
 			in.mouse(mouse);
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/back.png"));
-			if(firstGrid.mousepos(mouse,mousepos)){
-				firstS[i].setPos(mousepos[0],mousepos[1]);
-			}
+			firstGrid.mousepos(mouse,mousepos);
+			firstS[i].setPos(mousepos[0],mousepos[1]);
 			if(wait!=0){
 				wait--;
 			}
@@ -100,8 +98,9 @@ int main(int argc,char **argv){
 	}
 	
 	for(int i=0;i<5;i++){
+		secondGrid.addShip(&secondS[i]);
 		in.mouse(mouse);
-		while(!mouse[2]){
+		while(!mouse[2] || !secondGrid.allOk() || !secondGrid.mousepos(mouse,mousepos)){
 			in.mouse(mouse);
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/back.png"));
@@ -121,6 +120,7 @@ int main(int argc,char **argv){
 			printer.printOut();
 		}
 	}
+	return 0;
 	bool done=false;
 	while(!done){
 		while(!a[0]){
@@ -136,6 +136,7 @@ int main(int argc,char **argv){
 			firstGrid.render();
 			firstGridHit.render();
 			if(firstGrid.mousepos(mouse,mousepos)){
+			}
 				
 		}
 

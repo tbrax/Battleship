@@ -13,6 +13,7 @@ public:
 	int length();
 	bool isOk();
 	bool isHere(int posX,int posY,ship* notThis);
+	bool left();
 private:
 	bool _left;
 	int _objl;

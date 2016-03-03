@@ -42,8 +42,12 @@ void grid::render(){
 	}
 	for(int i=0;i<10;i++){
 		for(int j=0;j<10;j++){
-			if(_selected==1){
-				_printer->printAtSize("gameImages/Square1.png", i*_gridsize*.1+_gridOffset, _gridsize*.1*(1+j), _gridsize*.1, _gridsize*.1);
+			if(_selected[i][j]==1){
+				_printer->printAtSize(_printer->Obj("gameImages/white.png"), i*_gridsize*.1+_gridOffset, _gridsize*.1*(1+j), _gridsize*.1, _gridsize*.1);
+			}
+			if(_selected[i][j]==1){
+				_printer->printAtSize(_printer->Obj("gameImages/red.png"), i*_gridsize*.1+_gridOffset, _gridsize*.1*(1+j), _gridsize*.1, _gridsize*.1);
+			}
 		}
 	}
 }
@@ -71,3 +75,34 @@ bool grid::shipAt(int posX,int posY,ship* notThis){
 	}
 	return false;
 }
+
+bool grid::allOk(){
+	for(int j=0;j<_ships.size();j++){
+		if(!_ships[j]->isOk()){
+			return false;
+		}
+		for(int i=0;i<_ships[j]->length();i++){
+			if(shipAt(_ships[j]->posX()+(int)_ships[j]->left()*i,_ships[j]->posY()-((int)!_ships[j]->left())*i,_ships[j])){
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

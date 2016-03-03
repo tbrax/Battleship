@@ -18,3 +18,5 @@ Made the ship flip
 we now have imput from both users
 3-2
 made the main game sequence loop
+3-3
+now the ships cannot be placed on top of each other
