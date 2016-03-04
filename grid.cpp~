@@ -3,8 +3,8 @@
 grid::grid(print* printer,double gridOffset){
 	_printer=printer;
 	_gridsize=printer->yMeter();
-	if(_gridsize>(printer->xMeter())/2.1){
-		_gridsize=(printer->xMeter())/2.1;
+	if(_gridsize>(printer->xMeter())/2.5){
+		_gridsize=(printer->xMeter())/2.5;
 	}
 	_gridOffset=gridOffset;
 	for(int i=0;i<10;i++){

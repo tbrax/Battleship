@@ -36,9 +36,9 @@ int main(int argc,char **argv){
 	print printer;
 	input in;
 	grid firstGrid(&printer,0);
-	grid firstGridHit(&printer,firstGrid.gridsize()*1.1);
+	grid firstGridHit(&printer,firstGrid.gridsize()*1.5);
 	grid secondGrid(&printer,0);
-	grid secondGridHit(&printer,firstGrid.gridsize()*1.1);
+	grid secondGridHit(&printer,firstGrid.gridsize()*1.5);
 	
 	ship carr(printer.Obj("gameImages/carier.png"),printer.Obj("gameImages/carierL.png"),5);
 	ship battle(printer.Obj("gameImages/battleship.png"),printer.Obj("gameImages/battleshipL.png"),4);
