@@ -17,6 +17,7 @@ public:
 	bool allOk();
 	bool makeGreen(int* pos);
 	void rmGreen();
+	void shoot(int posX,int posY,bool hit);
 private:
 	double _gridsize;
 	double _gridOffset;

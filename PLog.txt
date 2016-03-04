@@ -20,3 +20,5 @@ we now have imput from both users
 made the main game sequence loop
 3-3
 now the ships cannot be placed on top of each other
+3-3
+now ships can be shot by each player

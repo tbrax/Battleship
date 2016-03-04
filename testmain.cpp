@@ -120,13 +120,22 @@ int main(int argc,char **argv){
 			printer.printOut();
 		}
 	}
+
+
+
 	bool done=false;
 	while(!done){
+		in.mouse(mouse);
+		in.letterKeys(a);
+
 		while(!a[0]){
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/pass.png"));
 			printer.printOut();
 		}
+
+		in.mouse(mouse);
+		in.letterKeys(a);
 
 		while(true){
 			in.mouse(mouse);
@@ -139,11 +148,26 @@ int main(int argc,char **argv){
 			}
 			firstGridHit.render();
 			printer.printOut();
-				
+			if(mouse[2] && firstGridHit.makeGreen(mousepos)){
+				secondGrid.shoot(mousepos[0],mousepos[1],secondGrid.shipAt(mousepos[0],mousepos[1],nullptr));
+				firstGridHit.shoot(mousepos[0],mousepos[1],secondGrid.shipAt(mousepos[0],mousepos[1],nullptr));
+				for(int i=0;i<30;i++){
+					printer.printAsBack(printer.Obj("gameImages/back.png"));
+					firstGrid.render();
+					firstGridHit.render();
+					printer.printOut();
+				}
+					
+				break;
+			}
+			if(a['Q'-'A']){
+				return 0;
+			}	
 		}
 
 
-
+		in.mouse(mouse);
+		in.letterKeys(a);
 
 
 
@@ -154,7 +178,34 @@ int main(int argc,char **argv){
 		}
 		in.mouse(mouse);
 		in.letterKeys(a);
-		printer.printAsBack(printer.Obj("gameImages/back.png"));
+
+
+		while(true){
+			in.mouse(mouse);
+			in.letterKeys(a);
+			printer.printAsBack(printer.Obj("gameImages/back.png"));
+			secondGrid.render();
+			secondGridHit.rmGreen();
+			if(secondGridHit.mousepos(mouse,mousepos)){
+				secondGridHit.makeGreen(mousepos);
+			}
+			secondGridHit.render();
+			printer.printOut();
+			if(mouse[2] && secondGridHit.makeGreen(mousepos)){
+				firstGrid.shoot(mousepos[0],mousepos[1],firstGrid.shipAt(mousepos[0],mousepos[1],nullptr));
+				secondGridHit.shoot(mousepos[0],mousepos[1],firstGrid.shipAt(mousepos[0],mousepos[1],nullptr));
+				for(int i=0;i<30;i++){
+					printer.printAsBack(printer.Obj("gameImages/back.png"));
+					secondGrid.render();
+					secondGridHit.render();
+					printer.printOut();
+				}
+				break;
+			}
+			if(a['Q'-'A']){
+				return 0;
+			}	
+		}
 		
 	}
 }

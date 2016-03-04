@@ -95,7 +95,7 @@ bool grid::allOk(){
 
 bool grid::makeGreen(int* pos){
 	int* val=&_selected[pos[0]][pos[1]];
-	if(*val!=0){
+	if(*val!=0 && *val!=3){
 		return false;
 	}
 	*val=3;
@@ -112,7 +112,10 @@ void grid::rmGreen(){
 	}
 }
 
-
+void grid::shoot(int posX,int posY,bool hit){
+	_selected[posX][posY]=1+(int)hit;
+	return;
+}
 
 
 
