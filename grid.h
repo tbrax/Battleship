@@ -15,6 +15,8 @@ public:
 	double gridsize();
 	bool shipAt(int posX,int posY,ship* notThis);
 	bool allOk();
+	bool makeGreen(int* pos);
+	void rmGreen();
 private:
 	double _gridsize;
 	double _gridOffset;

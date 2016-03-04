@@ -120,7 +120,6 @@ int main(int argc,char **argv){
 			printer.printOut();
 		}
 	}
-	return 0;
 	bool done=false;
 	while(!done){
 		while(!a[0]){
@@ -129,14 +128,17 @@ int main(int argc,char **argv){
 			printer.printOut();
 		}
 
-		while(!done){
+		while(true){
 			in.mouse(mouse);
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/back.png"));
 			firstGrid.render();
-			firstGridHit.render();
-			if(firstGrid.mousepos(mouse,mousepos)){
+			firstGridHit.rmGreen();
+			if(firstGridHit.mousepos(mouse,mousepos)){
+				firstGridHit.makeGreen(mousepos);
 			}
+			firstGridHit.render();
+			printer.printOut();
 				
 		}
 

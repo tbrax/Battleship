@@ -45,8 +45,11 @@ void grid::render(){
 			if(_selected[i][j]==1){
 				_printer->printAtSize(_printer->Obj("gameImages/white.png"), i*_gridsize*.1+_gridOffset, _gridsize*.1*(1+j), _gridsize*.1, _gridsize*.1);
 			}
-			if(_selected[i][j]==1){
+			if(_selected[i][j]==2){
 				_printer->printAtSize(_printer->Obj("gameImages/red.png"), i*_gridsize*.1+_gridOffset, _gridsize*.1*(1+j), _gridsize*.1, _gridsize*.1);
+			}
+			if(_selected[i][j]==3){
+				_printer->printAtSize(_printer->Obj("gameImages/green.png"), i*_gridsize*.1+_gridOffset, _gridsize*.1*(1+j), _gridsize*.1, _gridsize*.1);
 			}
 		}
 	}
@@ -90,9 +93,24 @@ bool grid::allOk(){
 	return true;
 }
 
+bool grid::makeGreen(int* pos){
+	int* val=&_selected[pos[0]][pos[1]];
+	if(*val!=0){
+		return false;
+	}
+	*val=3;
+	return true;
+}
 
-
-
+void grid::rmGreen(){
+	for(int i=0;i<10;i++){
+		for(int j=0;j<10;j++){
+			if(_selected[i][j]==3){
+				_selected[i][j]=0;
+			}
+		}
+	}
+}
 
 
 
