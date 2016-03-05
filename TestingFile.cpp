@@ -21,6 +21,8 @@ the main function for the game
 
 #include "print.h"
 #include "input.h"
+#include "ship.h"
+#include "grid.h"
 #include <iostream>
 #include <random>
 #include <ctime>
@@ -29,7 +31,24 @@ the main function for the game
 using std::cout;
 using std::endl;
 
-    vector<string> gameImages = {"gameImages/back.png","gameImages/one.jpg"};
+vector<string> gameImages = {"gameImages/back.png",
+"gameImages/battleship.png",
+"gameImages/battleshipL.png",
+"gameImages/carier.png",
+"gameImages/carierL.png",
+"gameImages/cruiser.png",
+"gameImages/cruiserL.png",
+"gameImages/green.png",
+"gameImages/pass.png",
+"gameImages/patrol.png",
+"gameImages/patrolL.png",
+"gameImages/red.png",
+"gameImages/Square1.png",
+"gameImages/Squarewtgreen.png",
+"gameImages/sub.png",
+"gameImages/subL.png",
+"gameImages/white.png"
+};
 
 TEST_CASE("Check if Game Control File Exists")
 {
@@ -64,5 +83,43 @@ TEST_CASE("SDL can load images")
 
 
 }
+
+TEST_CASE("Ship Objects can be created")
+{
+    print printer;
+
+	ship carr(printer.Obj("gameImages/carier.png"),printer.Obj("gameImages/carierL.png"),5);
+	ship battle(printer.Obj("gameImages/battleship.png"),printer.Obj("gameImages/battleshipL.png"),4);
+	ship sub(printer.Obj("gameImages/sub.png"),printer.Obj("gameImages/subL.png"),3);
+	ship cruiser(printer.Obj("gameImages/cruiser.png"),printer.Obj("gameImages/cruiserL.png"),3);
+	ship patrol(printer.Obj("gameImages/patrol.png"),printer.Obj("gameImages/patrolL.png"),2);
+
+    REQUIRE(carr.length() == 5);
+    REQUIRE(battle.length() == 4);
+    REQUIRE(sub.length() == 3);
+    REQUIRE(cruiser.length() == 3);
+    REQUIRE(patrol.length() == 2);
+}
+
+TEST_CASE("Grid Objects can be created")
+{
+	/*in.open("gameImages/game control.txt");
+	double temp;
+	in >> xdst_;
+	in >> temp;
+	int pixX_ = temp*disp.w;
+	in >> temp;
+	int pixY_ = temp*disp.h;
+	double ydst_ = xdst_*pixY_ / ((double)pixX_);
+	double scale_ = pixX_ / xdst_;
+
+    print printer;
+    grid firstGrid(&printer,0);
+    REQUIRE(firstGrid.gridsize() == 10);*/
+
+
+}
+
+
 
 
