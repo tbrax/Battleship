@@ -39,7 +39,7 @@ int main(int argc,char **argv){
 	grid firstGridHit(&printer,firstGrid.gridsize()*1.1);
 	grid secondGrid(&printer,0);
 	grid secondGridHit(&printer,firstGrid.gridsize()*1.1);
-	
+
 	ship carr(printer.Obj("gameImages/carier.png"),printer.Obj("gameImages/carierL.png"),5);
 	ship battle(printer.Obj("gameImages/battleship.png"),printer.Obj("gameImages/battleshipL.png"),4);
 	ship sub(printer.Obj("gameImages/sub.png"),printer.Obj("gameImages/subL.png"),3);
@@ -64,7 +64,7 @@ int main(int argc,char **argv){
 	in.mouse(mouse);
 	int mousepos[2];
 	int wait=0;
-	
+
 	for(int i=0;i<5;i++){
 		int prevX;
 		int prevY;
@@ -74,6 +74,7 @@ int main(int argc,char **argv){
 			in.mouse(mouse);
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/back.png"));
+			printer.printAtSize(printer.Obj("gameImages/Place.png"),0.25*printer.xMeter(),1*printer.yMeter(),0.5*printer.xMeter(),0.2*printer.yMeter());
 			firstGrid.mousepos(mouse,mousepos);
 			firstS[i].setPos(mousepos[0],mousepos[1]);
 			if(wait!=0){
@@ -89,14 +90,15 @@ int main(int argc,char **argv){
 			printer.printOut();
 		}
 	}
-	
-	
+
+
 	while(!a[0]){
 		in.letterKeys(a);
 		printer.printAsBack(printer.Obj("gameImages/pass.png"));
+		printer.printAtSize(printer.Obj("gameImages/Continue.png"),0.25*printer.xMeter(),1*printer.yMeter(),0.5*printer.xMeter(),0.2*printer.yMeter());
 		printer.printOut();
 	}
-	
+
 	for(int i=0;i<5;i++){
 		secondGrid.addShip(&secondS[i]);
 		in.mouse(mouse);
@@ -104,6 +106,7 @@ int main(int argc,char **argv){
 			in.mouse(mouse);
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/back.png"));
+			printer.printAtSize(printer.Obj("gameImages/Place.png"),0.25*printer.xMeter(),1*printer.yMeter(),0.5*printer.xMeter(),0.2*printer.yMeter());
 			if(firstGrid.mousepos(mouse,mousepos)){
 				secondS[i].setPos(mousepos[0],mousepos[1]);
 			}
@@ -131,6 +134,7 @@ int main(int argc,char **argv){
 		while(!a[0]){
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/pass.png"));
+			printer.printAtSize(printer.Obj("gameImages/Continue.png"),0.25*printer.xMeter(),1*printer.yMeter(),0.5*printer.xMeter(),0.2*printer.yMeter());
 			printer.printOut();
 		}
 
@@ -141,6 +145,8 @@ int main(int argc,char **argv){
 			in.mouse(mouse);
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/back.png"));
+			printer.printAtSize(printer.Obj("gameImages/Attack.png"),0.4*printer.xMeter(),1*printer.yMeter(),0.5*printer.xMeter(),0.2*printer.yMeter());
+			printer.printAtSize(printer.Obj("gameImages/Quit.png"),0.1*printer.xMeter(),0.95*printer.yMeter(),0.3*printer.xMeter(),0.1*printer.yMeter());
 			firstGrid.render();
 			firstGridHit.rmGreen();
 			if(firstGridHit.mousepos(mouse,mousepos)){
@@ -157,12 +163,12 @@ int main(int argc,char **argv){
 					firstGridHit.render();
 					printer.printOut();
 				}
-					
+
 				break;
 			}
 			if(a['Q'-'A']){
 				return 0;
-			}	
+			}
 		}
 
 
@@ -174,6 +180,7 @@ int main(int argc,char **argv){
 		while(!a[0]){
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/pass.png"));
+			printer.printAtSize(printer.Obj("gameImages/Continue.png"),0.25*printer.xMeter(),1*printer.yMeter(),0.5*printer.xMeter(),0.2*printer.yMeter());
 			printer.printOut();
 		}
 		in.mouse(mouse);
@@ -184,6 +191,8 @@ int main(int argc,char **argv){
 			in.mouse(mouse);
 			in.letterKeys(a);
 			printer.printAsBack(printer.Obj("gameImages/back.png"));
+            printer.printAtSize(printer.Obj("gameImages/Attack.png"),0.4*printer.xMeter(),1*printer.yMeter(),0.5*printer.xMeter(),0.2*printer.yMeter());
+			printer.printAtSize(printer.Obj("gameImages/Quit.png"),0.1*printer.xMeter(),0.95*printer.yMeter(),0.3*printer.xMeter(),0.1*printer.yMeter());
 			secondGrid.render();
 			secondGridHit.rmGreen();
 			if(secondGridHit.mousepos(mouse,mousepos)){
@@ -204,8 +213,8 @@ int main(int argc,char **argv){
 			}
 			if(a['Q'-'A']){
 				return 0;
-			}	
+			}
 		}
-		
+
 	}
 }
