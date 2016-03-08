@@ -117,7 +117,21 @@ void grid::shoot(int posX,int posY,bool hit){
 	return;
 }
 
-
+bool grid::allHit(){
+	int numOfHitsNessasary=0;
+	int numOfHits=0;
+	for(int i=0;i<_ships.size();i++){
+		numOfHitsNessasary+=_ships[i]->length();
+	}
+	for(int i=0;i<10;i++){
+		for(int j=0;j<10;j++){
+			if(_selected[i][j]==2){
+				numOfHits++;
+			}
+		}
+	}
+	return numOfHits==numOfHitsNessasary;
+}
 
 
 

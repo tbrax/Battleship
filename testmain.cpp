@@ -163,14 +163,18 @@ int main(int argc,char **argv){
 					firstGridHit.render();
 					printer.printOut();
 				}
-
+				if(secondGrid.allHit()){
+					done=true;
+				}
 				break;
 			}
 			if(a['Q'-'A']){
 				return 0;
 			}
 		}
-
+		if(done){
+			break;
+		}
 
 		in.mouse(mouse);
 		in.letterKeys(a);
@@ -208,6 +212,9 @@ int main(int argc,char **argv){
 					secondGrid.render();
 					secondGridHit.render();
 					printer.printOut();
+				}
+				if(firstGrid.allHit()){
+					done=true;
 				}
 				break;
 			}
