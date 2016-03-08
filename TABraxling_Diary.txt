@@ -1,0 +1,36 @@
+2/5/16
+Project Assignment 1 given in class. Met partner and discussed basic ideas.
+
+2/10/16
+Shared Repository, thought of how to implement basic functions.
+
+2/12/16
+Brainstorming session.
+
+2/14/16
+Setup SDL
+
+2/16/16
+Created Testing program
+
+2/17/16
+Learned about catch testing interface.
+
+2/19/16
+Setup project to be able to run sample project on computer.
+
+2/20/16
+Requirements document created.
+
+2/21/16
+Design document created.
+
+2/23/16
+Added to Testing program
+
+2/24/16
+Added to Testing program
+
+2/25/16
+Added mouse selection to main
+
