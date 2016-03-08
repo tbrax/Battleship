@@ -1,3 +1,7 @@
+Trace Braxling
+BattleShip Project Diary
+CS 372
+
 2/5/16
 Project Assignment 1 given in class. Met partner and discussed basic ideas.
 
@@ -26,11 +30,48 @@ Requirements document created.
 Design document created.
 
 2/23/16
-Added to Testing program
+Added to Testing program.
 
 2/24/16
-Added to Testing program
+Added to Testing program.
 
 2/25/16
-Added mouse selection to main
+Added mouse selection to main.
+
+2/26/16
+Started work on distinguishing mouse click events. Initial idea involved some inefficient code. 
+
+2/27/16
+Worked on ship placement.
+
+2/28/16
+Continued working on ship placement.
+
+2/27/16
+Having some difficulty in detecting ship hits, so I am figuring out the best way to do that.
+
+3/1/16
+Added instruction images.
+
+3/2/16
+Added to testing program.
+
+3/3/16
+Added to testing program.
+
+3/5/16
+Created User Document. Process is going fairly smoothly.
+
+3/6/16
+Continued to add to User Document.
+
+3/7/16
+Worked to delete extra files from repository.
+
+3/8/16
+
+
+
+
+
 
