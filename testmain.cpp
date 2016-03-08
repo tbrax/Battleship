@@ -224,4 +224,28 @@ int main(int argc,char **argv){
 		}
 
 	}
+	while(true){
+		in.letterKeys(a);
+		if(a['Q'-'A']){
+			return 0;
+		}
+		printer.printAsBack(printer.Obj("gameImages/win.png"));
+		printer.printOut();
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

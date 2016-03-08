@@ -22,3 +22,5 @@ made the main game sequence loop
 now the ships cannot be placed on top of each other
 3-3
 now ships can be shot by each player
+3-7
+now we have a win skreen
