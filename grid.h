@@ -18,11 +18,13 @@ public:
 	bool makeGreen(int* pos);
 	void rmGreen();
 	void shoot(int posX,int posY,bool hit);
+	bool allHit();
 private:
 	double _gridsize;
 	double _gridOffset;
 	print* _printer;
 	vector<ship*> _ships;
+	//0=blank 1=miss 2=hit 3=selected
 	int _selected[10][10];
 };
 
