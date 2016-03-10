@@ -68,9 +68,15 @@ Continued to add to User Document.
 3/7/16
 Worked to delete extra files from repository.
 
-3/8/16
+3/9/16
+Added to testing program. Had some problems thinking of good tests. Eventually created 
+some to test ship class.
 
+3/10/16
+Final Tweaks
 
+3/11/16 
+Project Turn in.
 
 
 

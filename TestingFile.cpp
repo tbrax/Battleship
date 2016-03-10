@@ -99,23 +99,56 @@ TEST_CASE("Ship Objects can be created")
     REQUIRE(sub.length() == 3);
     REQUIRE(cruiser.length() == 3);
     REQUIRE(patrol.length() == 2);
+
+    carr.setPos(0,0);
+    REQUIRE(carr.posX() == 0);
+    REQUIRE(carr.posY() == 0);
+    bool left = false;
+    REQUIRE(carr.getObj(&left) == printer.Obj("gameImages/carier.png"));
+    carr.flip();
+    REQUIRE(carr.getObj(&left) == printer.Obj("gameImages/carierL.png"));
+
+    battle.setPos(0,0);
+    REQUIRE(battle.posX() == 0);
+    REQUIRE(battle.posY() == 0);
+    REQUIRE(battle.getObj(&left) == printer.Obj("gameImages/battleship.png"));
+    battle.flip();
+    REQUIRE(battle.getObj(&left) == printer.Obj("gameImages/battleshipL.png"));
+
+    sub.setPos(0,0);
+    REQUIRE(sub.posX() == 0);
+    REQUIRE(sub.posY() == 0);
+    REQUIRE(sub.getObj(&left) == printer.Obj("gameImages/sub.png"));
+    sub.flip();
+    REQUIRE(sub.getObj(&left) == printer.Obj("gameImages/subL.png"));
+
+    cruiser.setPos(0,0);
+    REQUIRE(cruiser.posX() == 0);
+    REQUIRE(cruiser.posY() == 0);
+    REQUIRE(cruiser.getObj(&left) == printer.Obj("gameImages/cruiser.png"));
+    cruiser.flip();
+    REQUIRE(cruiser.getObj(&left) == printer.Obj("gameImages/cruiserL.png"));
+
+    patrol.setPos(0,0);
+    REQUIRE(patrol.posX() == 0);
+    REQUIRE(patrol.posY() == 0);
+    REQUIRE(patrol.getObj(&left) == printer.Obj("gameImages/patrol.png"));
+    patrol.flip();
+    REQUIRE(patrol.getObj(&left) == printer.Obj("gameImages/patrolL.png"));
+
+
 }
 
 TEST_CASE("Grid Objects can be created")
 {
-	/*in.open("gameImages/game control.txt");
-	double temp;
-	in >> xdst_;
-	in >> temp;
-	int pixX_ = temp*disp.w;
-	in >> temp;
-	int pixY_ = temp*disp.h;
-	double ydst_ = xdst_*pixY_ / ((double)pixX_);
-	double scale_ = pixX_ / xdst_;
-
     print printer;
     grid firstGrid(&printer,0);
-    REQUIRE(firstGrid.gridsize() == 10);*/
+    REQUIRE(firstGrid.allOk());
+    int mousepos[2];
+    mousepos[0] = 0;
+    mousepos[1] = 0;
+    REQUIRE(firstGrid.makeGreen(mousepos) == true);
+    REQUIRE(firstGrid.allHit() == true);
 
 
 }
