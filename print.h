@@ -36,7 +36,9 @@ public:
 	//the size of the screen in meeters
 	double xMeter();
 	double yMeter();
+	//returns the ratio of pixle to meeeters
 	double scale();
+	//this is the size in pixles (NOTE this is in a integer format)
 	int xPixel();
 	int yPixel();
 
@@ -50,26 +52,35 @@ public:
 
 	//rotates the object about portionw and portionh then prints that point on the image to x,y
 	void printRotC(int pos, double angle, double x, double y, double w, double portionW, double portionH);
-	//same only with a flip
+	//same only with a flip across y axis
 	void printRotCFlip(int pos, double angle, double x, double y, double w, double portionW, double portionH);
-	//prints a hp bar above the tank
+	//prints a hp bar above the tank (not useful in this program, this is a general purpus print wrapper)
 	void printHP(double posx,double posy, double width,double proportion);
-	//puts what is in the renderer to the screen
+	//puts what is in the renderer to the screen (think of as a commit)
 	void printOut();
-	//converts two numbers from pixles to meeters
+	//converts two numbers from pixles to meeters (each of these are x,y arrays)
 	void convertPxM(int* px,double* meeter);
 private:
+	//how we take in info in the screen
 	ifstream in;
+	//this is our texture to print out
 	SDL_Texture* loadT(const string &file);
+	//internal function to render to screen
 	void RenderText(int pos, double x, double y, double w, double h);
+	//renders a texture using the internal scale of the screen
 	void RenderTextScale(int pos, int x, int y, int s);
+	//the next four represent the size of the screen in meeters then pixles
 	double xdst_;
 	double ydst_;
 	int pixX_;
 	int pixY_;
+	//the scale of the screen
 	double scale_;
+	//these two allow textures to only be loaded once, once a file has been loaded we re-direct request for that texture to the vector
+	//of textures
 	vector<string> names_;
 	vector<SDL_Texture *> textures_;
+	//the basic renderer to put on the screen
 	SDL_Renderer * render_;
 };
 

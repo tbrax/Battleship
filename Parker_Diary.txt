@@ -9,7 +9,7 @@ Made one of the squares print a green dot.
 2-26
 So far weve gotten the SDL librarys to work and display stuff to the screen.  But we really havent been doing the "correct" method since it is, more or less, imposible to build a test for user I/O.  I'm trying to remidy that tonight as I will make a battleship class.
 
-We now hava a carrier on the screen, I had to do a lot of work with gimp to get the bakgound on it to go away but now it all works!
+We now hava a carrier on the screen, I had to do a lot of work with gimp to get the backgound on it to go away but now it all works!
 2-29
 Added the ship class and grid class wich know how to print the grid to the skreen with the ships on it.
 2-29
@@ -24,3 +24,5 @@ now the ships cannot be placed on top of each other
 now ships can be shot by each player
 3-7
 now we have a win skreen
+3-10
+annotated the code and made it all look butiful.  Done with this project I think.

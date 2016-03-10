@@ -1,5 +1,10 @@
+/*
+ship.h
+Parker Whaley + group
+5/7
+the class responsiable for handeling the ship
+*/
 #include "ship.h"
-
 ship::ship(int objl,int objd,int length){
 	_objl=objl;
 	_objd=objd;
